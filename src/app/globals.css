@@ -5,6 +5,16 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --brown-50: #FAF6F3;
+  --brown-100: #F5EDE7;
+  --brown-200: #E6D5C7;
+  --brown-300: #D7BDA7;
+  --brown-400: #C8A587;
+  --brown-500: #B98D67;
+  --brown-600: #8C6544;
+  --brown-700: #674B32;
+  --brown-800: #4A3419;
+  --brown-900: #2D1F0F;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -14,8 +24,37 @@
   }
 }
 
+::selection {
+  background-color: var(--brown-200);
+  color: var(--brown-800);
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.gradient-brown {
+  background: linear-gradient(135deg, var(--brown-50) 0%, var(--brown-100) 100%);
+}
+
+.shadow-brown {
+  box-shadow: 0 4px 14px 0 rgba(139, 101, 68, 0.1);
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-brown-800;
+  }
+}
+
+@layer components {
+  .btn-brown {
+    @apply bg-brown-600 text-white hover:bg-brown-700 transition-colors;
+  }
+  
+  .btn-brown-light {
+    @apply bg-brown-100 text-brown-800 hover:bg-brown-200 transition-colors;
+  }
 }
